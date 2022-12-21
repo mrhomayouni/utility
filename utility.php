@@ -118,5 +118,12 @@ class utility
         call_user_func_array(array($object, $method), $parameters);
         exit();
     }
+    
+    public static function dd($var)
+    {
+        echo '<pre>';
+        var_dump($var);
+        exit;
+    }
 
 }

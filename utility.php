@@ -125,5 +125,42 @@ class utility
         var_dump($var);
         exit;
     }
+    
+        public static function tree()
+    {
+        $items = array(
+            array('id' => 1, 'parent_id' => 0, 'name' => "ali"),
+            array('id' => 2, 'parent_id' => 1, 'name' => "mmd"),
+            array('id' => 3, 'parent_id' => 1, 'name' => "ahmad"),
+            array('id' => 3, 'parent_id' => 0, 'name' => "reza"),
+            array('id' => 4, 'parent_id' => 0, 'name' => "akbar"),
+            array('id' => 5, 'parent_id' => 4, 'name' => "asghar"),
+            array('id' => 5, 'parent_id' => 1, 'name' => "hasan"),
+        );
+
+        function buildTree($items)
+        {
+            foreach ($items as $item)
+            {
+                if ($item["parent_id"] == 0)
+                {
+                    echo $item["name"] . "<br>";
+
+                    foreach ($items as $item_l)
+                    {
+                        if ($item_l["parent_id"] == $item["id"])
+                        {
+                            echo "....." . $item_l["name"] . "<br>";
+                        }
+                    }
+                }
+
+            }
+        }
+
+        buildTree($items);
+
+    }
+
 
 }
